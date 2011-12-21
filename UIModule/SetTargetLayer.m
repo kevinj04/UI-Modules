@@ -24,7 +24,7 @@ NSString *const location = @"location";
 }
 
 - (void) updateReferencePoint:(NSNotification *) notification {
-    referencePoint = [(PhysicsObject *)[notification object] position];
+    //referencePoint = [(PhysicsObject *)[notification object] position];
 }
 @end
 
@@ -79,9 +79,11 @@ NSString *const location = @"location";
         for (UITouch *touch in touches) {
             CGPoint touchPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
             CGPoint force = ccpMult(ccpSub(touchPoint, referencePoint), .05);
-            
+           
+            /*
             PhysicsForceObject *pfo = [PhysicsForceObject objectWithForce:force];
             [[NSNotificationCenter defaultCenter] postNotificationName:targetLayerUpdate object:pfo];
+             */
         }
         
         

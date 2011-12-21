@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "PhysicsForceObject.h"
+/*#import "PhysicsForceObject.h"
 #import "PhysicsObject.h"
+ */
 
 extern NSString *const referencePointUpdate;
 extern NSString *const targetLayerUpdate;
