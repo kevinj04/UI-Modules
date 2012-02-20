@@ -11,6 +11,8 @@
 #import "cocos2d.h"
 #import "FlickScrollerDelegate.h"
 
+extern NSString *const nScrollChange;
+extern NSString *const nLocation;
 
 typedef enum flickerType {
 	vertical, horizontal, both

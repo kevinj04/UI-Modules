@@ -8,7 +8,9 @@
 
 
 #import "FlickScroller.h"
-#import "MCConstants.h"
+
+NSString *const nScrollChange = @"scrollChange";
+NSString *const nLocation = @"location";
 
 #define SPEED_BUFFER 5.0
 #define FLICK_POWER 5.0
@@ -139,7 +141,11 @@
         if (delegate != nil) {
             CGPoint change = CGPointMake(dx,dy);
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@ScrollBy", [delegate objectId]] object:self userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(change) forKey:nScrollChange]];
+            [[NSNotificationCenter defaultCenter] 
+             postNotificationName:[NSString stringWithFormat:@"%@ScrollBy", [delegate objectId]] 
+             object:self 
+             userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(change) 
+                                                  forKey:nScrollChange]];
             
             //[delegate scrollByDistance:change];
         }
@@ -210,7 +216,10 @@
         if (delegate != nil) {
             CGPoint flickLocation = ccp(dx/FLICK_FRICTION,dy/FLICK_FRICTION);
             NSLog(@"Flick Location EP: %@", NSStringFromCGPoint(flickLocation));
-            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@FlickTo", [delegate objectId]]  object:self userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(flickLocation) forKey:nLocation]];
+            [[NSNotificationCenter defaultCenter] 
+                postNotificationName:[NSString stringWithFormat:@"%@FlickTo", [delegate objectId]]  
+                object:self userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(flickLocation) 
+                                                                 forKey:nLocation]];
             //[delegate flickToLocation:flickLocation];
         }
         wasFlicked = YES;
