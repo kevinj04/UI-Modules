@@ -9,22 +9,38 @@
 #import "SetTargetLayer.h"
 
 NSString *const referencePointUpdate = @"referencePointUpdate";
+NSString *const referenceObjectUpdate = @"referenceObjectUpdate";
 NSString *const targetLayerUpdate = @"targetLayerUpdate";
 NSString *const location = @"location";
+NSString *const forceApplied = @"forceApplied";
 
 @interface SetTargetLayer (hidden)
 - (void) registerNotifications;
 
 - (void) updateReferencePoint:(NSNotification *) notification;
+- (void) updateReferenceObject:(NSNotification *) notification;
+- (CGPoint) currentReferencePoint;
 @end
 @implementation SetTargetLayer (hidden)
 
 - (void) registerNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateReferencePoint:) name:referencePointUpdate object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateReferenceObject:) name:referenceObjectUpdate object:nil];
 }
 
 - (void) updateReferencePoint:(NSNotification *) notification {
-    //referencePoint = [(PhysicsObject *)[notification object] position];
+    referencePoint = CGPointFromString([[notification userInfo] objectForKey:referencePointUpdate]);
+}
+- (void) updateReferenceObject:(NSNotification *)notification {
+    if ([[notification object] respondsToSelector:@selector(position)]) {
+        referenceObject = [[notification object] retain];
+    } else {
+        referenceObject = nil;
+    }
+}
+- (CGPoint) currentReferencePoint {
+    if (referenceObject == nil) { return referencePoint; }
+    else { return [referenceObject position]; }
 }
 @end
 
@@ -50,7 +66,7 @@ NSString *const location = @"location";
     
     boundary = rect;
     active = YES;
-    
+    referencePoint = CGPointMake(0.0, 0.0);
     //targetPoint = ccp(0.0,0.0);
     pointExists = NO;
     
@@ -78,12 +94,13 @@ NSString *const location = @"location";
         
         for (UITouch *touch in touches) {
             CGPoint touchPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-            CGPoint force = ccpMult(ccpSub(touchPoint, referencePoint), .05);
+            CGPoint force = ccpMult(ccpSub(touchPoint, [self currentReferencePoint]), .05);
            
             /*
-            PhysicsForceObject *pfo = [PhysicsForceObject objectWithForce:force];
-            [[NSNotificationCenter defaultCenter] postNotificationName:targetLayerUpdate object:pfo];
-             */
+            PhysicsForceObject *pfo = [PhysicsForceObject objectWithForce:force];*/
+            NSDictionary *pfo = [NSDictionary dictionaryWithObject:NSStringFromCGPoint(force) forKey:forceApplied];
+            [[NSNotificationCenter defaultCenter] postNotificationName:targetLayerUpdate object:self userInfo:pfo];
+             
         }
         
         

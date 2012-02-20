@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SetTargetLayerReferenceProtocol.h"
 /*#import "PhysicsForceObject.h"
 #import "PhysicsObject.h"
  */
 
 extern NSString *const referencePointUpdate;
+extern NSString *const referenceObjectUpdate;
 extern NSString *const targetLayerUpdate;
 extern NSString *const location;
+extern NSString *const forceApplied;
 
 @interface SetTargetLayer : CCLayer {
     
@@ -24,6 +27,7 @@ extern NSString *const location;
     bool pointExists;
     
     //CGPoint targetPoint;  // may be faster to just use this if we are doing single touch.
+    NSObject<SetTargetLayerReferenceProtocol> *referenceObject;
     CGPoint referencePoint;
     CGRect boundary;
     

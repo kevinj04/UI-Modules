@@ -206,6 +206,7 @@
 		0AAF022A14F2AD9900435524 /* FlickScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF022814F2AD9900435524 /* FlickScroller.m */; };
 		0AAF022B14F2AD9900435524 /* FlickScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF022814F2AD9900435524 /* FlickScroller.m */; };
 		0AAF022D14F2AFBA00435524 /* FlickScrollerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF022C14F2AFBA00435524 /* FlickScrollerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AAF023B14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF023A14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -462,6 +463,7 @@
 		0AAF022714F2AD9900435524 /* FlickScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickScroller.h; sourceTree = "<group>"; };
 		0AAF022814F2AD9900435524 /* FlickScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickScroller.m; sourceTree = "<group>"; };
 		0AAF022C14F2AFBA00435524 /* FlickScrollerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickScrollerDelegate.h; sourceTree = "<group>"; };
+		0AAF023A14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTargetLayerReferenceProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -920,6 +922,7 @@
 			children = (
 				0A24990214A250F700D5D7D3 /* SetTargetLayer.h */,
 				0A24990314A250F700D5D7D3 /* SetTargetLayer.m */,
+				0AAF023A14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h */,
 			);
 			name = "Set Target Layer";
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 				0A24998C14A260FC00D5D7D3 /* CCTransitionRadial.h in Headers */,
 				0A24998D14A260FC00D5D7D3 /* ccTypes.h in Headers */,
 				0A24995014A260B400D5D7D3 /* cocos2d.h in Headers */,
+				0AAF023B14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
