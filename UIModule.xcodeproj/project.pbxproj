@@ -206,7 +206,7 @@
 		0AAF022A14F2AD9900435524 /* FlickScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF022814F2AD9900435524 /* FlickScroller.m */; };
 		0AAF022B14F2AD9900435524 /* FlickScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF022814F2AD9900435524 /* FlickScroller.m */; };
 		0AAF022D14F2AFBA00435524 /* FlickScrollerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF022C14F2AFBA00435524 /* FlickScrollerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0AAF023B14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF023A14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h */; };
+		0AAF023B14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF023A14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -953,6 +953,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A24994B14A2601300D5D7D3 /* SetTargetLayer.h in Headers */,
+				0AAF023B14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h in Headers */,
 				0A24994C14A2601300D5D7D3 /* DoubleTapButton.h in Headers */,
 				0A24994D14A2601300D5D7D3 /* DPad.h in Headers */,
 				0A24994E14A2601300D5D7D3 /* SneakyButton.h in Headers */,
@@ -1021,7 +1022,6 @@
 				0A24998C14A260FC00D5D7D3 /* CCTransitionRadial.h in Headers */,
 				0A24998D14A260FC00D5D7D3 /* ccTypes.h in Headers */,
 				0A24995014A260B400D5D7D3 /* cocos2d.h in Headers */,
-				0AAF023B14F2CDBC00435524 /* SetTargetLayerReferenceProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
