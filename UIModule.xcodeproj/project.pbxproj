@@ -202,6 +202,10 @@
 		0A24998B14A260FC00D5D7D3 /* CCTransitionPageTurn.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A24985214A24E6E00D5D7D3 /* CCTransitionPageTurn.h */; };
 		0A24998C14A260FC00D5D7D3 /* CCTransitionRadial.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A24985514A24E6E00D5D7D3 /* CCTransitionRadial.h */; };
 		0A24998D14A260FC00D5D7D3 /* ccTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A24985814A24E6E00D5D7D3 /* ccTypes.h */; };
+		0AAF022914F2AD9900435524 /* FlickScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF022714F2AD9900435524 /* FlickScroller.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AAF022A14F2AD9900435524 /* FlickScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF022814F2AD9900435524 /* FlickScroller.m */; };
+		0AAF022B14F2AD9900435524 /* FlickScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF022814F2AD9900435524 /* FlickScroller.m */; };
+		0AAF022D14F2AFBA00435524 /* FlickScrollerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF022C14F2AFBA00435524 /* FlickScrollerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -455,6 +459,9 @@
 		0A24991E14A25EE200D5D7D3 /* libUserInput.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUserInput.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A24992C14A25EE200D5D7D3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0A24994914A25F9D00D5D7D3 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0AAF022714F2AD9900435524 /* FlickScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickScroller.h; sourceTree = "<group>"; };
+		0AAF022814F2AD9900435524 /* FlickScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickScroller.m; sourceTree = "<group>"; };
+		0AAF022C14F2AFBA00435524 /* FlickScrollerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickScrollerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -870,6 +877,7 @@
 		0A2498F714A24E8100D5D7D3 /* UI Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0AAF022514F2AD4C00435524 /* FlickScroller (Cocos2d) */,
 				0A24990A14A2512A00D5D7D3 /* Set Target Layer */,
 				0A24990914A2512200D5D7D3 /* Double Tap Buttons */,
 				0A24990814A2511200D5D7D3 /* DPad */,
@@ -924,6 +932,16 @@
 			name = Configurations;
 			sourceTree = "<group>";
 		};
+		0AAF022514F2AD4C00435524 /* FlickScroller (Cocos2d) */ = {
+			isa = PBXGroup;
+			children = (
+				0AAF022714F2AD9900435524 /* FlickScroller.h */,
+				0AAF022814F2AD9900435524 /* FlickScroller.m */,
+				0AAF022C14F2AFBA00435524 /* FlickScrollerDelegate.h */,
+			);
+			name = "FlickScroller (Cocos2d)";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -936,6 +954,8 @@
 				0A24994D14A2601300D5D7D3 /* DPad.h in Headers */,
 				0A24994E14A2601300D5D7D3 /* SneakyButton.h in Headers */,
 				0A24994F14A2601300D5D7D3 /* SneakyButtonSkin.h in Headers */,
+				0AAF022914F2AD9900435524 /* FlickScroller.h in Headers */,
+				0AAF022D14F2AFBA00435524 /* FlickScrollerDelegate.h in Headers */,
 				0A24995114A260FC00D5D7D3 /* CCAction.h in Headers */,
 				0A24995214A260FC00D5D7D3 /* CCActionCamera.h in Headers */,
 				0A24995314A260FC00D5D7D3 /* CCActionEase.h in Headers */,
@@ -1193,6 +1213,7 @@
 				0A24990114A24EBF00D5D7D3 /* SneakyButton.mm in Sources */,
 				0A24990514A250F700D5D7D3 /* SetTargetLayer.m in Sources */,
 				0A24990614A250F700D5D7D3 /* SneakyButtonSkin.mm in Sources */,
+				0AAF022A14F2AD9900435524 /* FlickScroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1226,7 @@
 				0A24994514A25F0C00D5D7D3 /* DPad.m in Sources */,
 				0A24994614A25F0C00D5D7D3 /* SneakyButton.mm in Sources */,
 				0A24994714A25F0C00D5D7D3 /* SneakyButtonSkin.mm in Sources */,
+				0AAF022B14F2AD9900435524 /* FlickScroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1349,6 +1371,7 @@
 				0A24993D14A25EE200D5D7D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
