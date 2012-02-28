@@ -217,7 +217,7 @@ NSString *const nLocation = @"location";
             CGPoint flickLocation = ccp(dx/FLICK_FRICTION,dy/FLICK_FRICTION);
             NSLog(@"Flick Location EP: %@", NSStringFromCGPoint(flickLocation));
             [[NSNotificationCenter defaultCenter] 
-                postNotificationName:[NSString stringWithFormat:@"%@FlickTo", [delegate objectId]]  
+                postNotificationName:[NSString stringWithFormat:@"flickTo"]  
                 object:self userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(flickLocation) 
                                                                  forKey:nLocation]];
             //[delegate flickToLocation:flickLocation];
