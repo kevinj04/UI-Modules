@@ -59,7 +59,7 @@ typedef enum swipeDirection {
 /** @brief Returns the bounding box for this scrollable object. */
 - (CGRect) boundingBox;
 /** @brief Returns the location of this object (BoundingBox origin). */
-- (CGPoint) location;
+- (CGPoint) position;
 
 - (bool) visible;
 - (NSString *) objectId;
