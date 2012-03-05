@@ -38,7 +38,7 @@ typedef enum flickerType {
     flickerType fType;
     bool isDragging;
     bool wasFlicked;
-    ccTime flickTime;
+    double flickTime;
     CGPoint touchOrigin;
     CGPoint lastDragPoint;
     

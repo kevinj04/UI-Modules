@@ -19,14 +19,15 @@ NSString *const nLocation = @"location";
 
 @interface FlickScroller (hidden)
 
-- (void) updateTimer:(ccTime) dt;
+- (void) updateTimer:(double) dt;
 
 @end
 
 @implementation FlickScroller (hidden)
 
-- (void) updateTimer:(ccTime) dt {
+- (void) updateTimer:(double) dt {
     flickTime += dt;
+    NSLog(@"Flick time update to: %2.2f", flickTime);
 }
 
 @end
@@ -97,7 +98,7 @@ NSString *const nLocation = @"location";
     if (CGRectContainsPoint([delegate boundingBox], locationOrig) /*&& [delegate visible]*/) {
         
         if (wasFlicked) {
-            if (delegate != nil) {[delegate stopFlick];}        
+            //if (delegate != nil) {[delegate stopFlick];}        
         }
         
         touchOrigin = locationOrig;
@@ -205,7 +206,7 @@ NSString *const nLocation = @"location";
     
     flickTime = fmaxf(flickTime, .01);
     
-    float speed = dist / (flickTime * 100.0);
+    float speed = dist / (flickTime * 100.0);    
     
     if (speed > SPEED_BUFFER) {
         // flick event
@@ -217,9 +218,9 @@ NSString *const nLocation = @"location";
             CGPoint flickLocation = ccp(dx/FLICK_FRICTION,dy/FLICK_FRICTION);
             NSLog(@"Flick Location EP: %@", NSStringFromCGPoint(flickLocation));
             [[NSNotificationCenter defaultCenter] 
-                postNotificationName:[NSString stringWithFormat:@"flickTo"]  
-                object:self userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(flickLocation) 
-                                                                 forKey:nLocation]];
+             postNotificationName:[NSString stringWithFormat:@"flickTo"]  
+             object:self userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(flickLocation) 
+                                                              forKey:nLocation]];
             //[delegate flickToLocation:flickLocation];
         }
         wasFlicked = YES;
