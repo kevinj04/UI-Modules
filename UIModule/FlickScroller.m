@@ -9,6 +9,9 @@
 
 #import "FlickScroller.h"
 
+#define kOffsetIPadX 0.0 // 64?
+#define kOffsetIPadY 0.0 // 32?
+
 NSString *const nScrollChange = @"scrollChange";
 NSString *const nLocation = @"location";
 
@@ -20,7 +23,8 @@ NSString *const nLocation = @"location";
 @interface FlickScroller (hidden)
 
 - (void) updateTimer:(double) dt;
-
+- (CGPoint) scalePointForIPad:(CGPoint) p;
+- (CGPoint) scalePointFromIPad:(CGPoint) p;
 @end
 
 @implementation FlickScroller (hidden)
@@ -29,7 +33,21 @@ NSString *const nLocation = @"location";
     flickTime += dt;
     NSLog(@"Flick time update to: %2.2f", flickTime);
 }
-
+- (CGPoint) scalePointForIPad:(CGPoint) p {
+    // ipad actions need to be twice as large, maybe old iphone too?
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return CGPointMake(p.x*2.0+kOffsetIPadX, p.y*2.0+kOffsetIPadY);
+    } else {
+        return p;
+    }
+}
+- (CGPoint) scalePointFromIPad:(CGPoint) p {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return CGPointMake((p.x - kOffsetIPadX) *0.5, (p.y - kOffsetIPadY)*0.5);
+    } else {
+        return p;
+    }
+}
 @end
 
 
@@ -93,7 +111,7 @@ NSString *const nLocation = @"location";
     if (!active) { return NO; }
     
     CGPoint locationOrig = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-    
+    locationOrig = [self scalePointFromIPad:locationOrig];
     
     if (CGRectContainsPoint([delegate boundingBox], locationOrig) /*&& [delegate visible]*/) {
         
