@@ -158,6 +158,7 @@ NSString *const nLocation = @"location";
     if (!active) {return;}
     
     CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+    location = [self scalePointFromIPad:location];
     
     if (isDragging) {
         
@@ -202,6 +203,7 @@ NSString *const nLocation = @"location";
     isDragging = NO;
     
     CGPoint locationOrig = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+    locationOrig = [self scalePointFromIPad:locationOrig];
 	//location = [self convertToNodeSpace:locationOrig];
     
     float dx = 0.0;
