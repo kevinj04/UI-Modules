@@ -25,6 +25,8 @@ NSString *const nLocation = @"location";
 - (void) updateTimer:(double) dt;
 - (CGPoint) scalePointForIPad:(CGPoint) p;
 - (CGPoint) scalePointFromIPad:(CGPoint) p;
+- (CGRect) scaleRectFromIPad:(CGRect) r;
+- (CGRect) scaleRectForIPad:(CGRect) r;
 @end
 
 @implementation FlickScroller (hidden)
@@ -48,6 +50,22 @@ NSString *const nLocation = @"location";
         return p;
     }
 }
+- (CGRect) scaleRectFromIPad:(CGRect) r {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return CGRectMake((r.origin.x - kOffsetIPadX)*0.5, (r.origin.y-kOffsetIPadY)*0.5, r.size.width*0.5, r.size.height*0.5);
+    } else {
+        return r;
+    }
+}
+- (CGRect) scaleRectForIPad:(CGRect) r {
+    // ipad actions need to be twice as large, maybe old iphone too?
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return CGRectMake(r.origin.x*2.0+kOffsetIPadX, r.origin.y*2.0+kOffsetIPadY, r.size.width*2.0, r.size.height*2.0);
+    } else {
+        return r;
+    }
+}
+
 @end
 
 
@@ -113,7 +131,9 @@ NSString *const nLocation = @"location";
     CGPoint locationOrig = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
     locationOrig = [self scalePointFromIPad:locationOrig];
     
-    if (CGRectContainsPoint([delegate boundingBox], locationOrig) /*&& [delegate visible]*/) {
+    CGRect hitBox = [self scaleRectFromIPad:[delegate boundingBox]];
+    
+    if (CGRectContainsPoint(hitBox, locationOrig) /*&& [delegate visible]*/) {
         
         if (wasFlicked) {
             //if (delegate != nil) {[delegate stopFlick];}        
