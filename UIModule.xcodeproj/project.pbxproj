@@ -134,7 +134,6 @@
 		0A24994514A25F0C00D5D7D3 /* DPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498FB14A24EBF00D5D7D3 /* DPad.m */; };
 		0A24994614A25F0C00D5D7D3 /* SneakyButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498FD14A24EBF00D5D7D3 /* SneakyButton.mm */; };
 		0A24994714A25F0C00D5D7D3 /* SneakyButtonSkin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A24990414A250F700D5D7D3 /* SneakyButtonSkin.mm */; };
-		0A24994A14A25F9D00D5D7D3 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0A24994914A25F9D00D5D7D3 /* Config.xcconfig */; };
 		0A24994B14A2601300D5D7D3 /* SetTargetLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A24990214A250F700D5D7D3 /* SetTargetLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A24994C14A2601300D5D7D3 /* DoubleTapButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A2498F814A24EBF00D5D7D3 /* DoubleTapButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A24994D14A2601300D5D7D3 /* DPad.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A2498FA14A24EBF00D5D7D3 /* DPad.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1068,7 +1067,7 @@
 		0A24977614A24E6C00D5D7D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 0A24977914A24E6C00D5D7D3 /* Build configuration list for PBXProject "UIModule" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1102,7 +1101,6 @@
 				0A2497A214A24E6C00D5D7D3 /* Icon.png in Resources */,
 				0A2497A414A24E6C00D5D7D3 /* Icon@2x.png in Resources */,
 				0A2497A714A24E6C00D5D7D3 /* iTunesArtwork in Resources */,
-				0A24994A14A25F9D00D5D7D3 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1282,6 +1280,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UIModule/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = UIModule/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1297,6 +1296,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UIModule/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = UIModule/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
