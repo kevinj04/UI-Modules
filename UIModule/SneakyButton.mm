@@ -131,6 +131,7 @@
                 value = 0; 
                 active = NO;
                 [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Off", [self buttonName]] object:self userInfo:nil];
+                [self ccTouchEnded:touch withEvent:event];
                 //NSLog(@"  >> Hold Ended with drag out");
                 // should count as tap?
                 // hold event ended
