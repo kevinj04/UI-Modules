@@ -114,7 +114,7 @@
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 	location = [self convertToNodeSpace:location];
     //Do a fast rect check before doing a circle hit check:
-	if(location.x < -radius || location.x > radius || location.y < -radius || location.y > radius){
+	if (!CGRectContainsPoint(boundingBox, location)){
 		return;
 	}else{
 		float dSq = location.x*location.x + location.y*location.y;
