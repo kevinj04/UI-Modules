@@ -169,7 +169,15 @@
         //NSLog(@"  >> Hold Ended");
         // hold ended?
         // toggle ended?
+    } else {
+        
+        if (value == 1) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Up", [self buttonName]] object:self userInfo:nil];
+        }
+        
     }
+    
+    
     
     // tap ended?
 }
