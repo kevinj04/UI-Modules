@@ -112,6 +112,7 @@
 	if (!active) return;
 	
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+
 	//location = [self convertToNodeSpace:location];
     //Do a fast rect check before doing a circle hit check:
 	if (!CGRectContainsPoint(boundingBox, location)){
