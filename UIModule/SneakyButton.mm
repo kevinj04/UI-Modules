@@ -109,34 +109,46 @@
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	if (!active) return;
+	//if (!active) return;
 	
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-
+    
 	//location = [self convertToNodeSpace:location];
     //Do a fast rect check before doing a circle hit check:
 	if (!CGRectContainsPoint(boundingBox, location)){
+        
+        if (isHoldable) {
+            
+            // we are no longer holding the button down
+            
+            value = 0; 
+            active = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Off", [self buttonName]] object:self userInfo:nil];            
+            // fire touch again?
+            [[CCTouchDispatcher sharedDispatcher] touchesCancelled:[NSSet setWithObject:touch] withEvent:event];
+            [[CCTouchDispatcher sharedDispatcher] touchesBegan:[NSSet setWithObject:touch] withEvent:event];
+            //[self ccTouchEnded:touch withEvent:event];
+            //NSLog(@"  >> Hold Ended with drag out");
+            // should count as tap?
+            // hold event ended
+        }
+        
 		return;
 	}else{
-		float dSq = location.x*location.x + location.y*location.y;
-		if(radiusSq > dSq){
-			if (isHoldable) {
-                value = 1;
-                //NSLog(@"  >> Hold Moved");
-                // hold event maintained?
-            }
-		}
-		else {
-			if (isHoldable) {
-                value = 0; 
-                active = NO;
-                [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Off", [self buttonName]] object:self userInfo:nil];
-                [self ccTouchEnded:touch withEvent:event];
-                //NSLog(@"  >> Hold Ended with drag out");
-                // should count as tap?
-                // hold event ended
-            }
-		}
+        
+        if (value == 0) {
+            // We have reentered the button region
+            active = YES;
+            value = 1;
+            [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Down", [self buttonName]] object:self userInfo:nil];
+        }    
+        
+        if (isHoldable) {
+            value = 1;
+            //NSLog(@"  >> Hold Moved");
+            // hold event maintained?
+        }
+        
 	}
 }
 
