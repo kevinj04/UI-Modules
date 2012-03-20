@@ -99,6 +99,8 @@
 	[window addSubview: viewController.view];
 	
 	[window makeKeyAndVisible];
+    
+    [window setMultipleTouchEnabled:YES];
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
