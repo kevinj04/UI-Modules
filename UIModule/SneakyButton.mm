@@ -37,7 +37,7 @@
 		status = 1; //defaults to enabled
 		active = NO;
 		value = 0;
-		isHoldable = YES;
+		isHoldable = NO;
 		isToggleable = 0;
         [self setRadius:32.0f];
 		rateLimit = 1.0f/120.0f;
