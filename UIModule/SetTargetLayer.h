@@ -21,7 +21,7 @@ extern NSString *const forceApplied;
 
 @interface SetTargetLayer : CCLayer {
     
-    bool active;
+    BOOL active;
     
     @private
     bool pointExists;
@@ -35,7 +35,7 @@ extern NSString *const forceApplied;
     
 }
 
-@property bool active;
+@property BOOL active;
 
 - (id) initWithRect:(CGRect) rect;
 + (id) layerWithRect:(CGRect) rect;
@@ -43,5 +43,6 @@ extern NSString *const forceApplied;
 - (void) dealloc;
 
 - (void) update:(ccTime) dt;
+- (void) setBoundary:(CGRect) r;
 
 @end

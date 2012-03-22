@@ -48,6 +48,7 @@ NSString *const forceApplied = @"forceApplied";
 @end
 
 @implementation SetTargetLayer
+
 @synthesize active;
 
 - (id) initWithRect:(CGRect) rect {
@@ -80,6 +81,10 @@ NSString *const forceApplied = @"forceApplied";
 }
 - (void) dealloc {
     [super dealloc];
+}
+
+- (void) setBoundary:(CGRect) r {
+    boundary = r;
 }
 
 - (void) update:(ccTime) dt {
