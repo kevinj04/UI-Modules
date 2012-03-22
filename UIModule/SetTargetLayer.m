@@ -35,6 +35,9 @@ NSString *const forceApplied = @"forceApplied";
     if ([[notification object] respondsToSelector:@selector(position)]) {
         referenceObject = [[notification object] retain];
     } else {
+        if (referenceObject != nil) {
+            [referenceObject release];
+        }
         referenceObject = nil;
     }
 }
