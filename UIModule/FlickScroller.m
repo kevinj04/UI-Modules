@@ -274,6 +274,7 @@ NSString *const nLocation = @"location";
 #pragma mark -
 
 - (void) setDelegate:(NSObject<FlickScrollerDelegate> *)d {
+    if (delegate != nil) { [delegate release]; delegate = nil; }
     delegate = [d retain];
     touchRect = [d boundingBox];
 }
