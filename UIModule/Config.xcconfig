@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-HEADERS_FOLDER_PATH           = /../GameEngine
+HEADERS_FOLDER_PATH           = /../UserInput
 PRIVATE_HEADERS_FOLDER_PATH   = $(HEADERS_FOLDER_PATH)$(BASE_PRODUCT_NAME)/private
 PUBLIC_HEADERS_FOLDER_PATH    = $(HEADERS_FOLDER_PATH)$(BASE_PRODUCT_NAME)
 
