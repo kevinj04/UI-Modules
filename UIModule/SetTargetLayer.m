@@ -102,7 +102,7 @@ NSString *const forceApplied = @"forceApplied";
         
         for (UITouch *touch in touches) {
             CGPoint touchPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-            CGPoint force = ccpMult(ccpSub(touchPoint, [self currentReferencePoint]), .05);
+            CGPoint force = ccpMult(ccpSub(touchPoint, [self currentReferencePoint]), 1.0);
            
             /*
             PhysicsForceObject *pfo = [PhysicsForceObject objectWithForce:force];*/
