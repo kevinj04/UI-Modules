@@ -51,7 +51,12 @@
 }
 
 -(void)limiter:(ccTime)delta{
-	value = 0;
+    
+    if (value == 1) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Up", [self buttonName]] object:self userInfo:nil];
+    }
+    
+    value = 0;
 	[self unschedule: @selector(limiter:)];
 	active = NO;
 }
@@ -64,11 +69,7 @@
 
 #pragma mark Touch Delegate
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    
-    CCNode *parent = [self parent];
-    NSLog(@"My parent is a %@", parent);
-    
+{      
     
     if (!isOn) return NO;
 	if (active) return NO;
@@ -89,7 +90,7 @@
             //[[CCScheduler sharedScheduler] scheduleSelector:@selector(limiter:) forTarget:self interval:rateLimit paused:NO];
             // tap event?
             //untested!
-            NSLog(@"Fire event %@", [NSString stringWithFormat:@"%@Down", [self buttonName]]);
+            //NSLog(@"Fire event %@", [NSString stringWithFormat:@"%@Down", [self buttonName]]);
             [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Down", [self buttonName]] object:self userInfo:nil];
             
         }
@@ -101,7 +102,7 @@
         }
         if (isToggleable) {
             // Untested
-            NSLog(@"Fire event %@", [NSString stringWithFormat:@"%@Down", [self buttonName]]);
+            //NSLog(@"Fire event %@", [NSString stringWithFormat:@"%@Down", [self buttonName]]);
             [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Down", [self buttonName]] object:self userInfo:nil];
             value = !value;
             // toggleEvent
