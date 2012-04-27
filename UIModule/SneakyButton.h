@@ -27,7 +27,7 @@
 	BOOL value;
 	BOOL isHoldable;
 	BOOL isToggleable;
-	float rateLimit;
+	ccTime rateLimit;
     
     CGRect boundingBox;
     bool isOn;
@@ -40,7 +40,7 @@
 @property (nonatomic, readonly) BOOL active;
 @property (nonatomic, assign) BOOL isHoldable;
 @property (nonatomic, assign) BOOL isToggleable;
-@property (nonatomic, assign) float rateLimit;
+@property (nonatomic, assign) ccTime rateLimit;
 @property (nonatomic, assign) CGRect boundingBox;
 @property (nonatomic, assign) bool isOn;
 
@@ -49,7 +49,8 @@
 
 -(id)initWithRect:(CGRect)rect;
 
-- (void) update:(ccTime) dt;
+- (void) limiter:(ccTime) dt;
+
 
 @end
 

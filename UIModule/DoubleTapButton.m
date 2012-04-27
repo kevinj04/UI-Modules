@@ -50,8 +50,8 @@ NSString *const doubleTap = @"doubleTap";
             
             if (taps == 0) {
                 active = YES;
-                [self performSelector:@selector(limiter:) withObject:nil afterDelay:rateLimit];
-                //[self schedule:@selector(limiter:) interval:rateLimit];
+                //[self performSelector:@selector(limiter:) withObject:nil afterDelay:rateLimit];
+                [self schedule:@selector(limiter:) interval:rateLimit];
             }
                 
             if (taps == 1 && active) {
@@ -157,6 +157,7 @@ NSString *const doubleTap = @"doubleTap";
 - (void) limiter:(ccTime) dt {
     taps = 0;
     active = NO;    
+    [self unschedule:@selector(limiter:)];
 }
 
 

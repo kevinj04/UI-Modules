@@ -50,7 +50,7 @@
 	return self;
 }
 
--(void)limiter:(float)delta{
+-(void)limiter:(ccTime)delta{
 	value = 0;
 	[self unschedule: @selector(limiter:)];
 	active = NO;
@@ -65,6 +65,11 @@
 #pragma mark Touch Delegate
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    
+    CCNode *parent = [self parent];
+    NSLog(@"My parent is a %@", parent);
+    
+    
     if (!isOn) return NO;
 	if (active) return NO;
     
@@ -81,7 +86,7 @@
         if (!isHoldable && !isToggleable){
             value = 1;
             [self schedule: @selector(limiter:) interval:rateLimit];
-            
+            //[[CCScheduler sharedScheduler] scheduleSelector:@selector(limiter:) forTarget:self interval:rateLimit paused:NO];
             // tap event?
             //untested!
             NSLog(@"Fire event %@", [NSString stringWithFormat:@"%@Down", [self buttonName]]);
