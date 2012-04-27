@@ -13,6 +13,10 @@ extern NSString *const doubleTap;
 
 @interface DoubleTapButton : SneakyButton {
     
+    int taps;
+    
 }
+
+- (void) limiter:(ccTime)dt;
 
 @end

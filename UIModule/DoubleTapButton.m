@@ -19,6 +19,7 @@ NSString *const doubleTap = @"doubleTap";
         rateLimit = 1.0/2.0;
         isHoldable = NO;
         isToggleable = NO;
+        taps = 0;
         
         return self;
     } else {
@@ -31,11 +32,7 @@ NSString *const doubleTap = @"doubleTap";
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     
-    if (!isOn) return NO;
-    NSLog(@"Value: %i    isActive: %i", value, active);
-	if (active) return NO;
-    
-    
+    if (!isOn) return NO;        
     
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 	//location = [self convertToNodeSpace:location];
@@ -46,14 +43,28 @@ NSString *const doubleTap = @"doubleTap";
 	if (!CGRectContainsPoint(boundingBox, location)){
 		return NO;
 	}else{
-        //active = YES;
+        //NSLog(@"Value: %i    isActive: %i", value, active);
+        
         if (!isHoldable && !isToggleable){
-            value += 1;
-            [self schedule: @selector(limiter:) interval:rateLimit];
+            
+            
+            if (taps == 0) {
+                active = YES;
+                [self performSelector:@selector(limiter:) withObject:nil afterDelay:rateLimit];
+                //[self schedule:@selector(limiter:) interval:rateLimit];
+            }
+                
+            if (taps == 1 && active) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:doubleTap object:self];
+                taps = 0;
+                active = NO;
+            }
+            
+            taps += 1;
             
             // tap event?
             //untested!
-            NSLog(@"Fire event %@", [NSString stringWithFormat:@"%@Down", [self buttonName]]);
+            //NSLog(@"Fire event %@", [NSString stringWithFormat:@"%@Down", [self buttonName]]);
             [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Down", [self buttonName]] object:self userInfo:nil];
             
         }
@@ -125,6 +136,8 @@ NSString *const doubleTap = @"doubleTap";
         // toggle ended?
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Up", [self buttonName]] object:self userInfo:nil];
+    
     // tap ended?
 }
 
@@ -141,14 +154,9 @@ NSString *const doubleTap = @"doubleTap";
 }
 
 
-- (void) update:(ccTime) dt {
-    if (value == 1) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@Down", [self buttonName]] object:self];
-    } else if (value > 1) {
-        active = YES;
-        value = 0;
-        [[NSNotificationCenter defaultCenter] postNotificationName:doubleTap object:self];
-    }
+- (void) limiter:(ccTime) dt {
+    taps = 0;
+    active = NO;    
 }
 
 
