@@ -40,6 +40,7 @@ NSString *const forceApplied = @"forceApplied";
         }
         referenceObject = nil;
     }
+    NSLog(@"New Reference Object Set: %@  with position  %@", referenceObject, NSStringFromCGPoint([referenceObject position]));
 }
 - (CGPoint) currentReferencePoint {
     if (referenceObject == nil) { return referencePoint; }
@@ -54,6 +55,8 @@ NSString *const forceApplied = @"forceApplied";
 - (id) initWithRect:(CGRect) rect {
     
     if (( self = [super init])) {
+        
+        [self registerNotifications];
         
         [self setupWithRect:rect];
         
@@ -76,10 +79,11 @@ NSString *const forceApplied = @"forceApplied";
     
     touches = [[NSMutableSet setWithCapacity:10] retain];
     
-    [self registerNotifications];
-    
 }
 - (void) dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [super dealloc];
 }
 
@@ -171,5 +175,9 @@ NSString *const forceApplied = @"forceApplied";
     [self ccTouchEnded:touch withEvent:event];
 }
 #pragma mark -
+
+- (NSObject<SetTargetLayerReferenceProtocol> *) referenceObject {
+    return referenceObject;
+}
 
 @end

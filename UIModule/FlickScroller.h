@@ -13,6 +13,7 @@
 
 extern NSString *const nScrollChange;
 extern NSString *const nLocation;
+extern NSString *const uiFlickTo;
 
 typedef enum flickerType {
 	vertical, horizontal, both

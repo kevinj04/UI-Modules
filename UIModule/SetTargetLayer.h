@@ -45,4 +45,6 @@ extern NSString *const forceApplied;
 - (void) update:(ccTime) dt;
 - (void) setBoundary:(CGRect) r;
 
+- (NSObject<SetTargetLayerReferenceProtocol> *) referenceObject;
+
 @end

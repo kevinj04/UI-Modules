@@ -122,7 +122,6 @@
 		0A2498E714A24E6F00D5D7D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498E614A24E6F00D5D7D3 /* main.m */; };
 		0A2498EA14A24E6F00D5D7D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498E914A24E6F00D5D7D3 /* AppDelegate.m */; };
 		0A2498ED14A24E6F00D5D7D3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498EC14A24E6F00D5D7D3 /* RootViewController.m */; };
-		0A2498F014A24E6F00D5D7D3 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498EF14A24E6F00D5D7D3 /* HelloWorldLayer.m */; };
 		0A2498FF14A24EBF00D5D7D3 /* DoubleTapButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498F914A24EBF00D5D7D3 /* DoubleTapButton.m */; };
 		0A24990014A24EBF00D5D7D3 /* DPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498FB14A24EBF00D5D7D3 /* DPad.m */; };
 		0A24990114A24EBF00D5D7D3 /* SneakyButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A2498FD14A24EBF00D5D7D3 /* SneakyButton.mm */; };
@@ -443,8 +442,6 @@
 		0A2498E914A24E6F00D5D7D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0A2498EB14A24E6F00D5D7D3 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		0A2498EC14A24E6F00D5D7D3 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		0A2498EE14A24E6F00D5D7D3 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		0A2498EF14A24E6F00D5D7D3 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		0A2498F114A24E6F00D5D7D3 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		0A2498F814A24EBF00D5D7D3 /* DoubleTapButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleTapButton.h; sourceTree = "<group>"; };
 		0A2498F914A24EBF00D5D7D3 /* DoubleTapButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleTapButton.m; sourceTree = "<group>"; };
@@ -535,8 +532,6 @@
 				0A2498E914A24E6F00D5D7D3 /* AppDelegate.m */,
 				0A2498EB14A24E6F00D5D7D3 /* RootViewController.h */,
 				0A2498EC14A24E6F00D5D7D3 /* RootViewController.m */,
-				0A2498EE14A24E6F00D5D7D3 /* HelloWorldLayer.h */,
-				0A2498EF14A24E6F00D5D7D3 /* HelloWorldLayer.m */,
 				0A2498F114A24E6F00D5D7D3 /* GameConfig.h */,
 				0A24979414A24E6C00D5D7D3 /* Resources */,
 				0A2497A814A24E6C00D5D7D3 /* libs */,
@@ -1209,7 +1204,6 @@
 				0A2498E714A24E6F00D5D7D3 /* main.m in Sources */,
 				0A2498EA14A24E6F00D5D7D3 /* AppDelegate.m in Sources */,
 				0A2498ED14A24E6F00D5D7D3 /* RootViewController.m in Sources */,
-				0A2498F014A24E6F00D5D7D3 /* HelloWorldLayer.m in Sources */,
 				0A2498FF14A24EBF00D5D7D3 /* DoubleTapButton.m in Sources */,
 				0A24990014A24EBF00D5D7D3 /* DPad.m in Sources */,
 				0A24990114A24EBF00D5D7D3 /* SneakyButton.mm in Sources */,

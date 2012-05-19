@@ -14,6 +14,7 @@
 
 NSString *const nScrollChange = @"scrollChange";
 NSString *const nLocation = @"location";
+NSString *const uiFlickTo = @"flickTo";
 
 #define SPEED_BUFFER 5.0
 #define FLICK_POWER 5.0
@@ -258,7 +259,7 @@ NSString *const nLocation = @"location";
             CGPoint flickLocation = ccp(dx/FLICK_FRICTION,dy/FLICK_FRICTION);
             NSLog(@"Flick Location EP: %@", NSStringFromCGPoint(flickLocation));
             [[NSNotificationCenter defaultCenter] 
-             postNotificationName:[NSString stringWithFormat:@"flickTo"]  
+             postNotificationName:uiFlickTo  
              object:self userInfo:[NSDictionary dictionaryWithObject:NSStringFromCGPoint(flickLocation) 
                                                               forKey:nLocation]];
             //[delegate flickToLocation:flickLocation];

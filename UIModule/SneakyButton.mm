@@ -14,6 +14,7 @@
 @synthesize buttonName;
 @synthesize boundingBox;
 @synthesize isOn;
+@synthesize isRateLimited;
 
 - (void) onEnterTransitionDidFinish
 {
@@ -41,7 +42,8 @@
 		isToggleable = 0;
         [self setRadius:32.0f];
 		rateLimit = 1.0f/120.0f;
-		
+		isRateLimited = YES;
+        
         isOn = YES;
         
 		position_ = rect.origin;
@@ -86,7 +88,9 @@
         active = YES;
         if (!isHoldable && !isToggleable){
             value = 1;
-            [self schedule: @selector(limiter:) interval:rateLimit];
+            
+            if (isRateLimited)
+                [self schedule: @selector(limiter:) interval:rateLimit];
             //[[CCScheduler sharedScheduler] scheduleSelector:@selector(limiter:) forTarget:self interval:rateLimit paused:NO];
             // tap event?
             //untested!
