@@ -88,6 +88,16 @@ NSString *const dPadDR = @"dPadDR";
     [self addChild:rightUpButton];
     [self addChild:rightButton];
     [self addChild:rightDownButton];
+    
+    [leftButton release];
+    [leftUpButton release];
+    [leftDownButton release];
+    [upButton release];
+    [menuButton release];
+    [downButton release];
+    [rightUpButton release];
+    [rightButton release];
+    [rightDownButton release];
 }
 - (void) registerNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leftUpButtonDown:) name:@"leftUpButtonDown" object:nil];
